@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Pixel Grid</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(windowWidth, windowHeight); // Fullscreen canvas
+      noStroke(); // Disable stroke for the rectangles
+    }
+
+    function draw() {
+      background(0); // Set the background color to black
+
+      // Create grid of random-filled rectangles
+      for (let y = 0; y < height; y += 10) {
+        for (let x = 0; x < width; x += 10) {
+          fill(random(255)); // Set a random grayscale color
+          rect(x, y, 1, 1); // Draw a 1x1 rectangle at the grid point
+        }
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight); // Adjust canvas size dynamically
+    }
+  </script>
+</body>
+</html>
